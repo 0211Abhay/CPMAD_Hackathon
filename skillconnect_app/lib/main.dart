@@ -1,40 +1,50 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'screens/login_page.dart';
+import 'package:practice_app_course/collections_viewer.dart';
+import 'package:flutter/foundation.dart'; // For kIsWeb
+import 'firebase_options.dart'; // Import your firebase_options.dart
 
-import 'package:practice_app_course/firebase_options.dart';
-import 'screens/sign_in_screen.dart';
 
-import 'package:skillconnect_app/screens/form_screen.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-
-Future<void> main() async {
+  // Ensure Firebase is initialized with the correct options
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
-  runApp(const MyApp());
-  
+    options: DefaultFirebaseOptions.currentPlatform,  // Pass the correct platform-specific options
+  );
+
+  runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Auth Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      home: const SignInScreen(),
       debugShowCheckedModeBanner: false,
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      title: 'Academic Dashboard',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      home: const FormScreen(),
+      home: AuthStateHandler(),
+    );
+  }
+}
 
+class AuthStateHandler extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasData) {
+          return CollectionsViewer();
+        } else {
+          return LoginPage();
+        }
+      },
     );
   }
 }
