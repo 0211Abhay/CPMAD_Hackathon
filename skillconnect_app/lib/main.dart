@@ -1,7 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'package:practice_app_course/firebase_options.dart';
 import 'screens/sign_in_screen.dart';
+
+import 'package:skillconnect_app/screens/form_screen.dart';
+
 
 Future<void> main() async {
   await Firebase.initializeApp(
@@ -19,11 +23,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Auth Demo',
       theme: ThemeData(
+
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
       ),
       home: const SignInScreen(),
       debugShowCheckedModeBanner: false,
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const FormScreen(),
+
     );
   }
 }
