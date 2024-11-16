@@ -18,13 +18,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-  apiKey: "AIzaSyDbg7zxSNbZpt1ISOzcRGmUKQYaLgV0nqk",
-  authDomain: "chat-app-acbad.firebaseapp.com",
-  projectId: "chat-app-acbad",
-  storageBucket: "chat-app-acbad.firebasestorage.app",
-  messagingSenderId: "82199167931",
-  appId: "1:82199167931:web:7f41cc9fa4e16a30bbfa9e",
-  measurementId: "G-1N0K9MM5NV"
+  apiKey: "AIzaSyA725ECsOg0p_pn9k4oGIpludbpTy31SqI",
+  authDomain: "skill-connect-7f2bb.firebaseapp.com",
+  projectId: "skill-connect-7f2bb",
+  storageBucket: "skill-connect-7f2bb.firebasestorage.app",
+  messagingSenderId: "363998759689",
+  appId: "1:363998759689:web:2fc24b4bfd787de34621d8"
   );
 
   static const FirebaseOptions android = FirebaseOptions(
