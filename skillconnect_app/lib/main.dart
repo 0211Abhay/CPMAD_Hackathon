@@ -15,14 +15,9 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,  // Pass the correct platform-specific options
   );
 
-
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
-
-  const MyApp({super.key});
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,7 +45,6 @@ class AuthStateHandler extends StatelessWidget {
           return LoginPage();
         }
       },
-
     );
   }
 }
