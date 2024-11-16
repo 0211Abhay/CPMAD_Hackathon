@@ -1,10 +1,8 @@
-
-=======
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/login_page.dart';
-
+import 'collections_viewer.dart';
 import 'package:flutter/foundation.dart'; // For kIsWeb
 import 'firebase_options.dart'; // Import your firebase_options.dart
 
