@@ -1,8 +1,10 @@
+
+=======
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/login_page.dart';
-import 'package:practice_app_course/collections_viewer.dart';
+
 import 'package:flutter/foundation.dart'; // For kIsWeb
 import 'firebase_options.dart'; // Import your firebase_options.dart
 
@@ -15,9 +17,14 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,  // Pass the correct platform-specific options
   );
 
+
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
+
+  const MyApp({super.key});
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,6 +52,7 @@ class AuthStateHandler extends StatelessWidget {
           return LoginPage();
         }
       },
+
     );
   }
 }
